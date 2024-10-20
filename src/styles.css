@@ -67,6 +67,24 @@ button:hover {
   font-weight: bold;
 }
 
+.required {
+  color: #d51007;
+  font-weight: bold;
+}
+
+.optional {
+  color: #666;
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+.note {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
 .button-group {
   display: flex;
   gap: 10px;

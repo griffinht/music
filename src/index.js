@@ -28,12 +28,12 @@ app.get('/', (c) => {
           window.location.href='/' + lastfm + (spotify ? '?spotify=' + spotify : '');">
           <h2>Your custom music page!</h2>
           <div class="input-group">
-            <label for="lastfm"><a href="https://www.last.fm" class="lastfm-link">Last.fm</a> Username:</label>
+            <label for="lastfm"><a href="https://www.last.fm" class="lastfm-link">Last.fm</a> Username <span class="required">*</span></label>
             <input type="text" id="lastfm" placeholder="username" required>
           </div>
           <div class="input-group">
-            <label for="spotify"><a href="https://www.spotify.com" class="spotify-link">Spotify</a> Profile URL:</label>
-            <input type="text" id="spotify" placeholder="https://open.spotify.com/user/vxtlb20119xae014jtl1azigz">
+            <label for="spotify"><a href="https://www.spotify.com" class="spotify-link">Spotify</a> Profile URL <span class="optional">(optional)</span></label>
+            <input type="text" id="spotify" placeholder="https://open.spotify.com/user/your-spotify-id">
           </div>
           <button type="submit">Generate Widget</button>
         </form>
