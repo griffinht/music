@@ -20,10 +20,21 @@ app.get('/', (c) => {
         <link rel="stylesheet" href="/styles.css">
       </head>
       <body>
-        <form onsubmit="event.preventDefault(); const lastfm = document.getElementById('lastfm').value; const spotify = document.getElementById('spotify').value; window.location.href='/' + lastfm + (spotify ? '?spotify=' + spotify : '');">
-          <h2>Enter Your Usernames</h2>
-          <input type="text" id="lastfm" placeholder="Your Last.fm username" required>
-          <input type="text" id="spotify" placeholder="Your Spotify username (optional)">
+        <form onsubmit="event.preventDefault(); 
+          const lastfm = document.getElementById('lastfm').value; 
+          const spotifyUrl = document.getElementById('spotify').value;
+          const spotifyMatch = spotifyUrl.match(/user\\/([^?]+)/);
+          const spotify = spotifyMatch ? spotifyMatch[1] : '';
+          window.location.href='/' + lastfm + (spotify ? '?spotify=' + spotify : '');">
+          <h2>Your custom music page!</h2>
+          <div class="input-group">
+            <label for="lastfm"><a href="https://www.last.fm" class="lastfm-link">Last.fm</a> Username:</label>
+            <input type="text" id="lastfm" placeholder="username" required>
+          </div>
+          <div class="input-group">
+            <label for="spotify"><a href="https://www.spotify.com" class="spotify-link">Spotify</a> Profile URL:</label>
+            <input type="text" id="spotify" placeholder="https://open.spotify.com/user/vxtlb20119xae014jtl1azigz">
+          </div>
           <button type="submit">Generate Widget</button>
         </form>
       </body>
@@ -56,7 +67,7 @@ app.get('/:username', (c) => {
             <a href="https://receiptify.herokuapp.com" class="button receiptify">Create Your Receiptify</a>
           </div>
           <a href="https://www.last.fm/user/${username}">
-            <iframe src="https://lastfm-recently-played.vercel.app/api?user=${username}&show_user=always" alt="Recently played tracks"></iframe>
+            <iframe src="https://lastfm-recently-played.vercel.app/api?user=${username}&show_user=always&count=10" alt="Recently played tracks"></iframe>
           </a>
         </div>
       </body>
