@@ -1,2 +1,2 @@
 deploy:
-	npx wrangler pages deploy
+	fly deploy
