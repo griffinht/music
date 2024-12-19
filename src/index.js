@@ -16,7 +16,7 @@ app.get('/', (c) => {
   const formHtml = `
     <html>
       <head>
-        <title>Enter Your Last.fm and Spotify Usernames</title>
+        <title>Enter Your Last.fm and Spotify usernames</title>
         <link rel="stylesheet" href="/styles.css">
       </head>
       <body>
